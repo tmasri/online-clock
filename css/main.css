@@ -1,0 +1,15 @@
+body {
+	overflow: hidden;
+}
+#container {
+	height: 100%;
+}
+#inner {
+	position:relative;
+	display:inline-block;
+}
+span {
+	font-family:work sans;
+	font-size:250px;
+	float:left;
+}
