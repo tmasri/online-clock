@@ -73,14 +73,16 @@ function newColor() {
 function setColor() {
    if (col == 0) {
       background(); // all the colors
+      // call setColor() every 20 milliseconds
+      // to change the color of the background
+      setTimeout(function() {
+            setColor();
+      }, 20);
    } else if (col == 1) {
       goWhite(); // only white
    } else {
       newColor(); // user selected
    }
-   setTimeout(function() {
-      setColor();
-   }, 20);
 }
 
 // Changes the selection highlight and change value of col
@@ -97,6 +99,7 @@ function changeColor(i) {
    if (i > 1) changeSelect("one","multi","none"); // chooses one (user selection)
    removeCheck();
    col = i;
+   setColor();
 }
 
 // Add highlight to selected color option
