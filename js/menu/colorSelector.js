@@ -17,7 +17,7 @@
  */
 
 let col = 0;
-let elements = ["blue", "purple", "red", "orange", "yellow", "green"];
+let elements = ["blue", "purple", "red", "orange", "yellow", "green", "gray", "black"];
 
 // Will change the background of the page to white
 function goWhite() {
@@ -32,21 +32,35 @@ function newColor() {
    switch(col) {
       case 2:
          $("body").css('background-color', '#3C82FF');
+         $("#container").css("color", "#000");
          break;
       case 3:
          $("body").css('background-color', '#FF3CFF');
+         $("#container").css("color", "#000");
          break;
       case 4:
          $("body").css('background-color', '#FF3C3C');
+         $("#container").css("color", "#000");
          break;
       case 5:
          $("body").css('background-color', '#FF823C');
+         $("#container").css("color", "#000");
          break;
       case 6:
          $("body").css('background-color', '#FFFF3C');
+         $("#container").css("color", "#000");
          break;
       case 7:
          $("body").css('background-color', '#3CFF82');
+         $("#container").css("color", "#000");
+         break;
+      case 8:
+         $("body").css('background-color', '#ccc');
+         $("#container").css("color", "#000");
+         break;
+      case 9:
+         $("body").css('background-color', '#000');
+         $("#container").css("color", "#fff");
          break;
    }
    addCheck(el);
