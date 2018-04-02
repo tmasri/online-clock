@@ -19,14 +19,24 @@
 
 </script>
 <style type="text/css">
-
+.feedback {
+	padding:10px;
+	text-align: center;
+}
+.feedback a {
+	text-decoration: none;
+	color:blue;
+}
+img {
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
 	<div id="menu-button">
 		<img src="pics/menu-button.png" class="menu-button" onclick="showMenu(1)">
 	</div>
-	<div id="menu" class="hide">
+	<div id="menu" class="">
 		<div id="close-button">
 			<img src="pics/x.png" class="close" onclick="showMenu(0)">
 		</div>
@@ -52,8 +62,11 @@
 				<div class="button on" id="12" onclick="changeV(0)"><h3 style="padding:0px;margin:0px;">12</h3></div>
 				<div class="button chosen" id="24" onclick="changeV(1)"><h3 style="padding:0px;margin:0px;">24</h3></div>
 			</div>
-		</div><!-- br><br><br>
-		<div class="fullscreen">
+		</div><br><br><br>
+		<!-- br><div class="feedback">
+			<a href="feedback.html">Feedback</a>
+		</div>
+		<!- div class="fullscreen">
 			<h2>Fullscreen</h2>
 			<div id="goFull" class="chosen" onclick="goFull()"><h3 style="padding:0px;margin:0px;">Go Fullscreen</h3></div>
 		</div -->
