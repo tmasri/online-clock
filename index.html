@@ -17,31 +17,34 @@
 <link rel="shortcut icon" href="../web.ico">
 <script type="text/javascript">
 
-/* - make it show the seconds and minutes
- *   bellow 10 as 04 or 02
- * 
- * - check if the person went fullscreen
- *   if they did change the allignment of
- *   the clock
- */
 </script>
 <style type="text/css">
 
 </style>
 </head>
 <body>
-	<div id="menu-button" class="">
-		<img src="menu-button.png" class="menu-button hide">
+	<div id="menu-button">
+		<img src="pics/menu-button.png" class="menu-button" onclick="showMenu(1)">
 	</div>
-	<div id="menu" class="">
+	<div id="menu" class="hide">
 		<div id="close-button">
-			<img src="x.png" class="close">
+			<img src="pics/x.png" class="close" onclick="showMenu(0)">
 		</div>
 		<div class="color-choice">
 			<h2>Color Choice</h2>
-			<div id="multi" class="chosen"><h3 class="color">Multi Color</h3></div>
-			<div id="none" onclick="goWhite()"><h3 class="color">None</h3></div>
+			<div id="multi" class="chosen" onclick="changeColor(0)"><h3 class="color">Multi Color</h3></div>
+			<div id="none" onclick="changeColor(1)"><h3 class="color">None</h3></div>
 			<div id="one"><h3 class="color">Single Color</h3></div>
+			<table cellspacing="7">
+				<tr>
+					<td id="blue" onclick="changeColor(2)" style="background-color: #3C82FF;"></td>
+					<td id="purple" onclick="changeColor(3)" style="background-color: #FF3CFF;"></td>
+					<td id="red" onclick="changeColor(4)" style="background-color: #FF3C3C;"></td>
+					<td id="orange" onclick="changeColor(5)" style="background-color: #FF823C;"></td>
+					<td id="yellow" onclick="changeColor(6)" style="background-color: #FFFF3C;"></td>
+					<td id="green" onclick="changeColor(7)" style="background-color: #3CFF82;"></td>
+				</tr>
+			</table>
 		</div>
 		<div class="clock-type">
 			<h2>Clock Type</h2>
@@ -66,6 +69,8 @@
 		</div>
 		</center>
 	</div>
+	<script src="js/menu/clockType.js"></script>
+	<script src="js/menu/colorSelector.js"></script>
 	<script type="text/javascript">
 		
 		function align() {
@@ -80,38 +85,18 @@
 			$("#inner").css('margin-top', (pHeight/2) - (height/2));
 		}
 		align();
-		
-		var v = 0;
-		var a = 0;
-		function getTimer() {
-			timer(v);
-			setTimeout(function() {
-				getTimer();
-			}, 1000);
-		}
-		getTimer();
-		
-		function changeV(i) {
+
+		function showMenu(i) {
 			if (i == 1) {
-				$("#12").removeClass('on');
-				$("#12").addClass('chosen');
-				$("#24").removeClass('chosen');
-				$("#24").addClass('on');
-			} else {
-				$("#12").removeClass('chosen');
-				$("#12").addClass('on');
-				$("#24").removeClass('on');
-				$("#24").addClass('chosen');
+				var val = -1000;
+				$("#menu").removeClass('hide');
 			}
-			v = i;
-		}
-		
-		function goWhite() {
-			$("body").css('background-color', '#fff');
+			else $("#menu").addClass('hide');
 		}
 		
 		// calling functions
-		background(255,255,255, 0, "blue");
+		getTimer();
+		setColor();
 	</script>
 </body>
 </html>

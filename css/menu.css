@@ -1,3 +1,4 @@
+/* burger menu */
 #menu-button {
 	width:5%;
 	float: right;
@@ -6,6 +7,7 @@
 .menu-button {
 	width:100%;
 }
+/* main menu box */
 #menu {
 	display:inline-block;
 	position:fixed;
@@ -19,7 +21,10 @@
 	height:100%;
 	background-color: #f6f6f6;
 	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.8);
+	right: 0;
+	transition: right 300ms ease;
 }
+
 #close-button {
 	display:inline-block;
 	width: 13%;
@@ -27,12 +32,13 @@
 .close {
 	width:100%;
 }
-.color-choice {
-	/*border:1px solid #000;*/
-}
+
+/* highlights the chosen color function */
 .chosen {
 	background-color: #eaeaea;
 }
+
+/* button text styles */
 h2 {
 	border-bottom:1px solid #8e8e8e;
 	padding-bottom:0;
@@ -42,15 +48,35 @@ h3.color:hover {
 	background-color:#eaeaea;
 	cursor: pointer;
 }
+
+/* table for color selector */
+table { margin: 0; margin-top: -10; padding: 0;}
+table tr { margin: 0; padding: 0;}
+td {
+   width:40px;
+   height:40px;
+   text-align: center;
+   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+}
+td img {
+   width: 100%;
+   height: 95%;
+}
+
+/* 12 - 24 hour section */
 .button {
 	float:left;
 	padding:13px 45px;
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
 	cursor: pointer;
 }
+
+/* highlights the button that the user selected */
 .on {
 	background: #2FB0FF;
 }
+
+/* fullscreen section */
 #goFull {
 	padding:10px;
 	text-align:center;
@@ -63,4 +89,11 @@ h3.color:hover {
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.6);
 	transition: all 300ms ease;
 }
-.hide { display: none !important; }
+
+/* hides the menu */
+.hide {
+	display: none !important;
+	right:-1000px;
+	transition: right 300ms ease;
+}
+/* .show { display:block !important; } */

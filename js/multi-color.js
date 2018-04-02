@@ -1,69 +1,71 @@
-function background(r,g,b,c,v) {
+let color= [255,255,255];
+var colorValue = "blue";
+var changeSpeed = 0;
+
+function background() {
 	
-	$("body").css('background-color', 'rgb('+r+','+g+','+b+')');
+	$("body").css('background-color', 'rgb('+color[0]+','+color[1]+','+color[2]+')');
 	
-	switch (v) {
+	switch (colorValue) {
 		case "blue":
-			if (r > 60 || g > 130) {
-				if (r > 60) r--;
-				if (c == 1) {
-					if (g > 130) g--;
-					c = 0;
-				} else c++;
+			if (color[0]> 60 || color[1]> 130) {
+				if (color[0]> 60) color[0] -= 1;
+				if (changeSpeed == 1) {
+					if (color[1]> 130) color[1] -= 1;
+					changeSpeed = 0;
+				} else changeSpeed++;
 			} else {
-				c = 0;
-				v = "purple";
+				changeSpeed = 0;
+				colorValue = "purple";
 			}
-			if (b < 255) b++; 
+			if (color[2]< 255) color[2] += 1; 
 			break;
 		
 		case "purple":
-			if (r < 255 || g > 60) {
-				if (r < 255) r++;
-				if (c == 1) {
-					if (g > 60) g--;
-					c = 0;
-				} else c++;
+			if (color[0]< 255 || color[1]> 60) {
+				if (color[0]< 255) color[0] += 1;
+				if (changeSpeed == 1) {
+					if (color[1]> 60) color[1] -= 1;
+					changeSpeed = 0;
+				} else changeSpeed++;
 			} else {
-				c = 0;
-				v = "red";
+				changeSpeed = 0;
+				colorValue = "red";
 			}
-			if (b < 255) b++;
+			if (color[2]< 255) color[2] += 1;
 			break;
 		
 		case "red":
-			if (b > 60) b--;
-			else v = "orange";
-			if (r < 255) r++;
-			if (g > 60) g--;
+			if (color[2]> 60) color[2] -= 1;
+			else colorValue = "orange";
+			if (color[0]< 255) color[0] += 1;
+			if (color[1]> 60) color[1] -= 1;
 			break;
 		
 		case "orange":
-			if (g < 130) {
-				g++;
-			} else v = "yellow";
+			if (color[1]< 130) {
+				color[1] += 1;
+			} else colorValue = "yellow";
 			break;
 		
 		case "yellow":
-			if (g < 255) g++;
-			else v = "green";
+			if (color[1]< 255) color[1] += 1;
+			else colorValue = "green";
 			break;
 		
 		case "green":
-			if (r > 60 || b < 130) {
-				if (r > 60) r--;
-				if (c = 1) {
-					if (b < 130) b++;
-					c = 0;
-				} else c++;
+			if (color[0]> 60 || color[2]< 130) {
+				if (color[0]> 60) color[0] -= 1;
+				if (changeSpeed = 1) {
+					if (color[2]< 130) color[2] += 1;
+					changeSpeed = 0;
+				} else changeSpeed++;
 			} else {
-				c = 0;
-				v = "blue";
+				changeSpeed = 0;
+				colorValue = "blue";
 			}
 			break;
 		
 	}
-	
-	setTimeout('background('+r+','+g+','+b+', '+c+', \"'+v+'\")', 20);
 	
 }
