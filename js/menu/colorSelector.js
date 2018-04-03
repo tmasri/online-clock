@@ -35,18 +35,8 @@ function newColor() {
 }
 
 function checkColor(i) {
-
-      if (colors[col-2] == "black") return true;
-      if (colors[col-2] == "indigo") return true;
-      if (colors[col-2] == "navy") return true;
-      if (colors[col-2] == "blue") return true;
-      if (colors[col-2] == "maroon") return true;
-      if (colors[col-2] == "purple") return true;
-      if (colors[col-2] == "midnightblue") return true;
-      if (colors[col-2] == "brown") return true;
-
-      return false;
-
+      let arr = ["black", "indigo", "navy", "blue", "maroon", "purple", "midnightblue", "brown"];
+      return arr.includes(colors[col-2]);
 }
 
 /* Calls the function that the user selected
@@ -70,17 +60,19 @@ function setColor() {
 
 // Changes the selection highlight and change value of col
 function changeColor(i) {
-
+   console.log("i = " + i);
    switch(i) {
       case 0:
          changeSelect("multi","one","none"); // chooses multicolor
-         $("#container").css("color", "#000");
          break;
       case 1:
          changeSelect("none","one","multi"); // chooses none (white)
          break;
    }
-   if (i > 1) changeSelect("one","multi","none"); // chooses one (user selection)
+   $("#container").css("color", "#000");
+   if (i > 1) {
+         changeSelect("one","multi","none"); // chooses one (user selection)
+   }
    removeCheck();
    col = i;
    setColor();
