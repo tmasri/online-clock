@@ -37,11 +37,13 @@ function timer(v){
 	//console.log("hrs = " + d.getHours());
 	//console.log("date = " + d);
 	if (d.getHours() >= 13 && v == 1){
+		// 24 hour clock
 		hrs = d.getHours();
-		hrs = addZero(hrs, 0);
-	} else {
-		hrs = d.getHours() %12;
 		hrs = addZero(hrs, 1);
+	} else {
+		// 12 hour clock
+		hrs = d.getHours() %12;
+		hrs = addZero(hrs, 0);
 	}
 
 	sec = addZero(sec, 0);
@@ -61,7 +63,7 @@ function timer(v){
 }
 
 function addZero(v,i) {
-	if (v < 10 && i == 1) return " " + v;
 	if (v < 10 && i == 0) return "0" + v;
+	if (v < 10 && i == 1) return " " + v;
 	return v;
 }
