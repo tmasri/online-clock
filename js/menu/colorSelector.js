@@ -74,6 +74,7 @@ function changeColor(i) {
    switch(i) {
       case 0:
          changeSelect("multi","one","none"); // chooses multicolor
+         $("#container").css("color", "#000");
          break;
       case 1:
          changeSelect("none","one","multi"); // chooses none (white)
