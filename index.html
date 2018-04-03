@@ -36,37 +36,35 @@ img {
 	<div id="menu-button">
 		<img src="pics/menu-button.png" class="menu-button" onclick="showMenu(1)">
 	</div>
-	<div id="menu" class="hide">
+	<div id="menu" class="">
 		<div id="close-button">
 			<img src="pics/x.png" class="close" onclick="showMenu(0)">
 		</div>
 		<div class="color-choice">
 			<h2>Color Choice</h2>
-			<div id="multi" class="chosen" onclick="changeColor(0)"><h3 class="color">Multi Color</h3></div>
-			<div id="none" onclick="changeColor(1)"><h3 class="color">None</h3></div>
+			<div id="multi" class="chosen" onclick="changeColor(0)"><h3 class="color">Color Fade</h3></div>
 			<div id="one"><h3 class="color">Single Color</h3></div>
-			<table cellspacing="7">
-				<tr>
-					<td id="blue" onclick="changeColor(2)" style="background-color: #3C82FF;"></td>
-					<td id="purple" onclick="changeColor(3)" style="background-color: #FF3CFF;"></td>
-					<td id="red" onclick="changeColor(4)" style="background-color: #FF3C3C;"></td>
-					<td id="orange" onclick="changeColor(5)" style="background-color: #FF823C;"></td>
-					<td id="yellow" onclick="changeColor(6)" style="background-color: #FFFF3C;"></td>
-					<td id="green" onclick="changeColor(7)" style="background-color: #3CFF82;"></td>
-					<td id="gray" onclick="changeColor(8)" style="background-color: #ccc;"></td>
-				</tr>
-				<tr>
-					<td id="black" onclick="changeColor(9)" style="background-color: #000;"></td>
-				</tr>
+			<table cellspacing="7" id="colorPicker">
+				<!-- colors will go here -->
 			</table>
+			<div id="none" onclick="changeColor(1)"><h3 class="color">None</h3></div>
 		</div>
 		<div class="clock-type">
 			<h2>Clock Type</h2>
 			<div class="switch">
-				<div class="button on" id="12" onclick="changeV(0)"><h3 style="padding:0px;margin:0px;">12</h3></div>
-				<div class="button chosen" id="24" onclick="changeV(1)"><h3 style="padding:0px;margin:0px;">24</h3></div>
+				<div class="button on" id="12" onclick="changeV(0)"><h3 style="padding:0px;margin:0px;">12H</h3></div>
+				<div class="button chosen" id="24" onclick="changeV(1)"><h3 style="padding:0px;margin:0px;">24H</h3></div>
 			</div>
 		</div><br><br><br>
+		<div class="thickness">
+			<h2>Font Thickness</h2>
+			<div class="thick">
+				<div class="button on" id="thin" style="padding:13px 20px;" onclick="changeThick(0)"><h3 style="padding:0px;margin:0px;">Thin</h3></div>
+				<div class="button" id="norm" style="padding:13px 20px;" onclick="changeThick(1)"><h3 style="padding:0px;margin:0px;">Normal</h3></div>
+				<div class="button" id="thick" style="padding:13px 20px;" onclick="changeThick(2)"><h3 style="padding:0px;margin:0px;">Thick</h3></div>
+			</div>
+		</div><br><br><br>
+		<div style="height:50px;"></div>
 		<!-- br><div class="feedback">
 			<a href="feedback.html">Feedback</a>
 		</div>
@@ -83,11 +81,13 @@ img {
 			<span id="m">M</span>
 			<span> : </span>
 			<span id="s">S</span>
+			<span id="pm" style="font-size:25px;"></span>
 		</div>
 		</center>
 	</div>
 	<script src="js/menu/clockType.js"></script>
 	<script src="js/menu/colorSelector.js"></script>
+	<script src="js/menu/colors.js"></script>
 	<script type="text/javascript">
 		
 		function align() {
@@ -110,8 +110,32 @@ img {
 			}
 			else $("#menu").addClass('hide');
 		}
+
+		function changeThick(i) {
+			switch (i) {
+				case 0:
+					changeThickColor("thin","norm","thick");
+					$('span').css('font-family','roboto thin');
+					break;
+				case 1:
+					changeThickColor("norm","thick","thin");
+					$('span').css('font-family','roboto');
+					break;
+				case 2:
+					changeThickColor("thick","thin","norm");
+					$('span').css('font-family','roboto bold');
+					break;
+			}
+		}
+
+		function changeThickColor(on, off1, off2) {
+			$("#" + on).addClass('on');
+			$("#" + off1).removeClass('on');
+			$("#" + off2).removeClass('on');
+		}
 		
 		// calling functions
+		fillColors();
 		getTimer();
 		setColor();
 	</script>

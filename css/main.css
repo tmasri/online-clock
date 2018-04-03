@@ -1,3 +1,31 @@
+/* roboto */
+@font-face {
+	font-family: 'roboto thin';
+	font-style: normal;
+	src: url('../fonts/Roboto_Mono/RobotoMono-Thin.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'roboto';
+	font-style: normal;
+	src: url('../fonts/Roboto_Mono/RobotoMono-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'roboto bold';
+	font-style: normal;
+	src: url('../fonts/Roboto_Mono/RobotoMono-Bold.ttf') format('truetype');
+}
+/* source code pro */
+@font-face {
+	font-family: 'source code pro xl';
+	font-style: normal;
+	src: url('../fonts/Source_Code_pro/SourceCodePro-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'source code pro';
+	font-style: normal;
+	src: url('../fonts/Source_Code_pro/SourceCodePro-Light.ttf') format('truetype');
+}
+
 body {
 	overflow: hidden;
 }
@@ -9,7 +37,7 @@ body {
 	display:inline-block;
 }
 span {
-	font-family:work sans;
+	font-family:roboto thin;
 	font-size:250px;
 	float:left;
 }

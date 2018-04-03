@@ -3,6 +3,13 @@
 	width:5%;
 	float: right;
 	z-index:-1;
+	border-radius: 5em;
+	background-color: rgba(204, 204, 204, 0.4);
+	transition: background-color 300ms ease;
+}
+#menu-button:hover {
+	background-color: rgba(142,142,142, 0.4);
+	transition: background-color 300ms ease;
 }
 .menu-button {
 	width:100%;
@@ -23,6 +30,7 @@
 	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.8);
 	right: 0;
 	transition: right 300ms ease;
+	overflow-y: auto;
 }
 
 #close-button {
@@ -31,6 +39,13 @@
 }
 .close {
 	width:100%;
+	border-radius: 7em;
+	background-color: rgba(204, 204, 204, 0.4);
+	transition: background-color 300ms ease;
+}
+.close:hover {
+	background-color: rgba(142,142,142, 0.4);
+	transition: background-color 300ms ease;
 }
 
 /* highlights the chosen color function */
@@ -96,4 +111,6 @@ td img {
 	right:-1000px;
 	transition: right 300ms ease;
 }
-/* .show { display:block !important; } */
+#thin { font-family: roboto thin; }
+#norm { font-family: roboto; }
+#thick { font-family: roboto bold; }

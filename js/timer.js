@@ -38,14 +38,30 @@ function timer(v){
 	//console.log("date = " + d);
 	if (d.getHours() >= 13 && v == 1){
 		hrs = d.getHours();
+		hrs = addZero(hrs, 0);
 	} else {
 		hrs = d.getHours() %12;
+		hrs = addZero(hrs, 1);
 	}
+
+	sec = addZero(sec, 0);
+	min = addZero(min, 0);
 	
 	document.getElementById("h").innerHTML = "<center>" + hrs + "</center>";
 	document.getElementById("m").innerHTML = "<center>" + min + "</center>";
 	document.getElementById("s").innerHTML = "<center>" + sec + "</center>";
+	if (d.getHours() >= 12) {
+		document.getElementById("pm").innerHTML = "PM";
+	} else {
+		document.getElementById("pm").innerHTML = "AM";
+	}
 	
 	//var timer = setTimeout('timer('+v+')',1000);
 
+}
+
+function addZero(v,i) {
+	if (v < 10 && i == 1) return " " + v;
+	if (v < 10 && i == 0) return "0" + v;
+	return v;
 }

@@ -17,7 +17,6 @@
  */
 
 let col = 0;
-let elements = ["blue", "purple", "red", "orange", "yellow", "green", "gray", "black"];
 
 // Will change the background of the page to white
 function goWhite() {
@@ -28,42 +27,26 @@ function goWhite() {
  * the user chose
  */
 function newColor() {
-   var el = document.getElementById(elements[col-2]);
-   switch(col) {
-      case 2:
-         $("body").css('background-color', '#3C82FF');
-         $("#container").css("color", "#000");
-         break;
-      case 3:
-         $("body").css('background-color', '#FF3CFF');
-         $("#container").css("color", "#000");
-         break;
-      case 4:
-         $("body").css('background-color', '#FF3C3C');
-         $("#container").css("color", "#000");
-         break;
-      case 5:
-         $("body").css('background-color', '#FF823C');
-         $("#container").css("color", "#000");
-         break;
-      case 6:
-         $("body").css('background-color', '#FFFF3C');
-         $("#container").css("color", "#000");
-         break;
-      case 7:
-         $("body").css('background-color', '#3CFF82');
-         $("#container").css("color", "#000");
-         break;
-      case 8:
-         $("body").css('background-color', '#ccc');
-         $("#container").css("color", "#000");
-         break;
-      case 9:
-         $("body").css('background-color', '#000');
-         $("#container").css("color", "#fff");
-         break;
-   }
+   var el = document.getElementById(colors[col-2]);
+   $("body").css('background-color',colors[col-2]);
+   if (checkColor(col-2)) $("#container").css("color", "#fff");
+   else $("#container").css("color", "#000");
    addCheck(el);
+}
+
+function checkColor(i) {
+
+      if (colors[col-2] == "black") return true;
+      if (colors[col-2] == "indigo") return true;
+      if (colors[col-2] == "navy") return true;
+      if (colors[col-2] == "blue") return true;
+      if (colors[col-2] == "maroon") return true;
+      if (colors[col-2] == "purple") return true;
+      if (colors[col-2] == "midnightblue") return true;
+      if (colors[col-2] == "brown") return true;
+
+      return false;
+
 }
 
 /* Calls the function that the user selected
@@ -113,7 +96,7 @@ function changeSelect(on, off1, off2) {
 // Adds the check image to the color box
 // that the user selected
 function addCheck(el) {
-   if ($("#" + elements[col-2]).children().length == 0) {
+   if ($("#" + colors[col-2]).children().length == 0) {
       var elem = document.createElement("img");
       elem.setAttribute("src","pics/check.png");
       elem.setAttribute("id", "check");
@@ -126,9 +109,9 @@ function addCheck(el) {
 // box has it
 function removeCheck() {
    var removeElement;
-   for (var i = 0; i < elements.length; i++) {
-      if ($("#" + elements[i]).children().length > 0) {
-         removeElement = document.getElementById(elements[i]);
+   for (var i = 0; i < colors.length; i++) {
+      if ($("#" + colors[i]).children().length > 0) {
+         removeElement = document.getElementById(colors[i]);
          removeElement.removeChild(document.getElementById("check"));
       }
    }
