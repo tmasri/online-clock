@@ -25,24 +25,19 @@ function timer(v){
 	//mn to yr
 	var y = Math.floor(mn / 12);
 	
-	/*y %= 12;
-	mn %= 4;
-	wk %= 7;*/
 	hrs %= 24;
 	min %= 60;
 	sec %= 60;
 	hrs += 4;
 	
-	///console.log("v = " + v);
-	//console.log("hrs = " + d.getHours());
-	//console.log("date = " + d);
 	if (d.getHours() >= 13 && v == 1){
 		// 24 hour clock
 		hrs = d.getHours();
 		hrs = addZero(hrs, 1);
 	} else {
 		// 12 hour clock
-		hrs = d.getHours() %12;
+		if (d.getHours() != 12 ) hrs = d.getHours() %12;
+		else hrs = d.getHours();
 		hrs = addZero(hrs, 0);
 	}
 
@@ -57,8 +52,6 @@ function timer(v){
 	} else {
 		document.getElementById("pm").innerHTML = "AM";
 	}
-	
-	//var timer = setTimeout('timer('+v+')',1000);
 
 }
 
