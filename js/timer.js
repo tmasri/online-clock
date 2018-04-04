@@ -2,33 +2,6 @@ function timer(v){
 
 	//current time
 	var d = new Date();
-	var dd = d.getTime() + d.getTimezoneOffset()*60*1000;
-	
-	//dd to seconds
-	var sec = Math.floor(dd / 1000);
-	
-	//sec to min
-	var min = Math.floor(sec / 60);
-	
-	//min to hrs
-	var hrs = Math.floor(min / 60);
-	
-	//hrs to day
-	var day = Math.floor(hrs / 24);
-	
-	//day to week
-	var wk = Math.floor(day / 7);
-	
-	//wk to mn
-	var mn = Math.floor(wk / 4);
-	
-	//mn to yr
-	var y = Math.floor(mn / 12);
-	
-	hrs %= 24;
-	min %= 60;
-	sec %= 60;
-	hrs += 4;
 	
 	if (d.getHours() >= 13 && v == 1){
 		// 24 hour clock
@@ -41,16 +14,18 @@ function timer(v){
 		hrs = addZero(hrs, 0);
 	}
 
-	sec = addZero(sec, 0);
-	min = addZero(min, 0);
+	sec = addZero(d.getSeconds(), 0);
+	min = addZero(d.getMinutes(), 0);
 	
 	document.getElementById("h").innerHTML = "<center>" + hrs + "</center>";
 	document.getElementById("m").innerHTML = "<center>" + min + "</center>";
 	document.getElementById("s").innerHTML = "<center>" + sec + "</center>";
-	if (d.getHours() >= 12) {
+	if (d.getHours() >= 12 && v == 0) {
 		document.getElementById("pm").innerHTML = "PM";
-	} else {
+	} else if (d.getHours() < 12 && v == 0) {
 		document.getElementById("pm").innerHTML = "AM";
+	} else {
+		document.getElementById("pm").innerHTML = "";
 	}
 
 }
