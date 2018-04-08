@@ -43,14 +43,19 @@ function checkColor(i) {
  * and will call the value that the user
  * selected every 20 milliseconds
  */
+var i = 0;
 function setColor() {
    if (col == 0) {
-      background(); // all the colors
+      background(i); // all the colors
+
+      if (i == 4) i = 0;
+      else i++;
+
       // call setColor() every 20 milliseconds
       // to change the color of the background
       setTimeout(function() {
             setColor();
-      }, 20);
+      }, 1700);
    } else if (col == 1) {
       goWhite(); // only white
    } else {

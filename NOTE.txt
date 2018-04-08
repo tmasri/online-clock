@@ -1,0 +1,6 @@
+- change the multicolor file so that it would change the color every second or so but make it so that css would change the color according to a color name not rgb
+
+- make the change that igor talked about, so find the math function that he was talking about and change the color o the text accordingly
+
+history of what you have done
+sell analysis, development, and product

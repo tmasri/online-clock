@@ -28,6 +28,7 @@
 
 body {
 	overflow: hidden;
+	transition: background-color 5000ms;
 }
 #container {
 	height: 100%;
