@@ -48,7 +48,7 @@ function setColor() {
    if (col == 0) {
       background(i); // all the colors
 
-      if (i == 4) i = 0;
+      if (i == backColors.length) i = 0;
       else i++;
 
       // call setColor() every 20 milliseconds

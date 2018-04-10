@@ -114,3 +114,6 @@ td img {
 #thin { font-family: roboto thin; }
 #norm { font-family: roboto; }
 #thick { font-family: roboto bold; }
+.more {
+	margin-top: 30px;
+}
