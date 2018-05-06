@@ -1,3 +1,26 @@
+@media screen and (max-width: 780px) {
+	body {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+	#menu-button {
+		width: 15% !important;
+		position: absolute;
+		float: right;
+		top:10px !important;
+		right: 10px;
+	}
+	#menu {
+		width: 70% !important;
+	}
+	.button {
+		padding:13px 35px !important;
+	}
+	.thick {
+		padding:13px 13px !important;
+	}
+ }
+
 /* burger menu */
 #menu-button {
 	width:5%;
@@ -110,6 +133,9 @@ td img {
 	display: none !important;
 	right:-1000px;
 	transition: right 300ms ease;
+}
+.thick {
+	padding:13px 20px;
 }
 #thin { font-family: roboto thin; }
 #norm { font-family: roboto; }

@@ -2,6 +2,8 @@
 <html>
 <head>
 <title>Online Clock</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:200" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -59,32 +61,20 @@ img {
 		<div class="thickness">
 			<h2>Font Thickness</h2>
 			<div class="thick">
-				<div class="button on" id="thin" style="padding:13px 20px;" onclick="changeThick(0)"><h3 style="padding:0px;margin:0px;">Thin</h3></div>
-				<div class="button" id="norm" style="padding:13px 20px;" onclick="changeThick(1)"><h3 style="padding:0px;margin:0px;">Normal</h3></div>
-				<div class="button" id="thick" style="padding:13px 20px;" onclick="changeThick(2)"><h3 style="padding:0px;margin:0px;">Thick</h3></div>
-			</div>
-		</div><br><br><br>
-		<div class="more">
-			<div class="more-button">
-				<div class="button on"><h3 style="padding:0px;margin:0px;">More</h3></div>
+				<div class="button on thick" id="thin" onclick="changeThick(0)"><h3 style="padding:0px;margin:0px;">Thin</h3></div>
+				<div class="button thick" id="norm" onclick="changeThick(1)"><h3 style="padding:0px;margin:0px;">Normal</h3></div>
+				<div class="button thick" id="thick" onclick="changeThick(2)"><h3 style="padding:0px;margin:0px;">Thick</h3></div>
 			</div>
 		</div>
 		<div style="height:100px;"></div>
-		<!-- br><div class="feedback">
-			<a href="feedback.html">Feedback</a>
-		</div>
-		<!- div class="fullscreen">
-			<h2>Fullscreen</h2>
-			<div id="goFull" class="chosen" onclick="goFull()"><h3 style="padding:0px;margin:0px;">Go Fullscreen</h3></div>
-		</div -->
 	</div>
 	<div id="container">
 		<center>
 		<div id="inner">
 			<span id="h">H</span>
-			<span> : </span>
+			<span class="colon"> : </span>
 			<span id="m">M</span>
-			<span> : </span>
+			<span class="colon"> : </span>
 			<span id="s">S</span>
 			<span id="pm" style="font-size:25px;"></span>
 		</div>
@@ -97,6 +87,10 @@ img {
 		
 		function align() {
 			
+			// check body
+			var bodyHeight = $("body").height();
+			var bodyWidth = $("body").width();
+
 			// parents dimensions
 			var pHeight = $("#container").height();
 			
@@ -104,8 +98,13 @@ img {
 			var height = $("#inner").height();
 			
 			// implementation
-			$("#inner").css('margin-top', (pHeight/2) - (height/2));
-			$("#pm").css('margin-top', (pHeight/2) - (height/2));
+			if (bodyHeight <= bodyWidth) {
+				$("#inner").css('margin-top', (pHeight/2) - (height/2));
+				$("#pm").css('margin-top', (pHeight/2) - (height/2));
+			} else {
+				$("#inner").css('margin-top', (pHeight/2) - (height*2));
+				$("#pm").css('margin-top', (pHeight/2) - (height*2));
+			}
 		}
 		align();
 

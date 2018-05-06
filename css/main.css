@@ -26,6 +26,20 @@
 	src: url('../fonts/Source_Code_pro/SourceCodePro-Light.ttf') format('truetype');
 }
 
+@media screen and (max-width: 780px) {
+	#inner {
+		position: inherit !important;
+		display:block !important;
+	}
+	span {
+		font-size: 100px !important;
+		float: none !important;
+	}
+	.colon {
+		display: none;
+	}
+ }
+
 body {
 	overflow: hidden;
 	transition: background-color 5000ms;
