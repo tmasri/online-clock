@@ -112,6 +112,9 @@ img {
 			if (i == 1) {
 				var val = -1000;
 				$("#menu").removeClass('hide');
+				$("#container").click(function () {
+					showMenu(0)
+				});
 			}
 			else $("#menu").addClass('hide');
 		}
