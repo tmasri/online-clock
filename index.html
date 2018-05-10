@@ -72,6 +72,7 @@ img {
 				<div class="button on" id="on" onclick="changeH(0)"><h3 style="padding:0px;margin:0px;">Visible</h3></div>
 				<div class="button chosen" id="off" onclick="changeH(1)"><h3 style="padding:0px;margin:0px;">Hidden</h3></div>
 			</div>
+			<div class="note">Double click on the screen to change visibility again</div>
 		</div>
 		<div style="height:100px;"></div>
 	</div>
@@ -150,6 +151,15 @@ img {
 			$("#" + off1).removeClass('on');
 			$("#" + off2).removeClass('on');
 		}
+
+		$(function () {
+			$("#container").dblclick(function() {
+				if ($("#menu-button").hasClass("hide")) {
+					$("#menu-button").removeClass("hide");
+					changeH(0);
+				}
+			});
+		});
 		
 		// calling functions
 		fillColors();
